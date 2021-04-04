@@ -4,8 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="parserCsvDao" class="ru.otus.spring.dao.ParserCsvDaoSimple"></bean>
+
     <bean id="questionDao" class="ru.otus.spring.dao.QuestionDaoSimple">
         <constructor-arg type="java.lang.String" name="questionResourceFile" value="QuestionForTest.csv"/>
+        <constructor-arg name="parser" ref="parserCsvDao"></constructor-arg>
     </bean>
 
     <bean id="questionServise" class="ru.otus.spring.service.QuestionServiceImpl">

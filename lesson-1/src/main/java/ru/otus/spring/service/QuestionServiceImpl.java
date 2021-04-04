@@ -11,7 +11,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public void runTest() throws Exception {
-        questions =  this.dao.getQuestionsFromCsv();
+        questions =  this.dao.getQuestions();
 
     }
 
