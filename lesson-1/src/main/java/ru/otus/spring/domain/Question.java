@@ -1,7 +1,12 @@
 package ru.otus.spring.domain;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 import java.io.Serializable;
 
+@RequiredArgsConstructor
+@Getter
 public class Question implements Serializable {
     private String id;
     private String text;

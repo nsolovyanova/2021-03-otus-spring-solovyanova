@@ -1,5 +1,7 @@
 package ru.otus.spring.service;
 
+import ru.otus.spring.domain.Question;
+
 public interface QuestionService {
-    void runTest() throws Exception;
+    Question runTest() throws Exception;
 }

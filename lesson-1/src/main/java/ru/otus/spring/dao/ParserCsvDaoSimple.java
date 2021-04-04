@@ -3,14 +3,14 @@ package ru.otus.spring.dao;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
-import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import ru.otus.spring.domain.Question;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-@RequiredArgsConstructor
+@Component
 public class ParserCsvDaoSimple implements ParserCsvDao {
     private Question question;
 
