@@ -13,9 +13,15 @@ public class QuestionServiceImpl implements QuestionService {
     private final QuestionDao dao;
 
     @Override
-    public List<Question> runTest() throws Exception {
-        System.out.println(dao.getQuestions());
+    public List<Question> getQuestions() throws Exception {
         return dao.getQuestions();
+    }
+
+    @Override
+    public void showAnswers(String [] answers) {
+        for (int i = 0; i < answers.length; i++) {
+            System.out.println(answers[i]);
+        }
 
     }
 

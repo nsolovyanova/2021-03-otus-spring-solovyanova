@@ -17,7 +17,6 @@ public class QuestionDaoSimple implements QuestionDao {
         this.questionResourceFile = questionResourceFile;
     }
 
-
     @Override
     public List<Question> getQuestions() {
         try {
