@@ -5,13 +5,16 @@ import org.springframework.stereotype.Service;
 import ru.otus.spring.dao.QuestionDao;
 import ru.otus.spring.domain.Question;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class QuestionServiceImpl implements QuestionService {
     private final QuestionDao dao;
 
     @Override
-    public Question runTest() throws Exception {
+    public List<Question> runTest() throws Exception {
+        System.out.println(dao.getQuestions());
         return dao.getQuestions();
 
     }

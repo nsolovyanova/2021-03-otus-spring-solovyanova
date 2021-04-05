@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import ru.otus.spring.domain.Question;
 
+import java.util.List;
+
 @Repository
 public class QuestionDaoSimple implements QuestionDao {
     private final String questionResourceFile;
     private final ParserCsvDao parser;
-    private Question question;
+    private List<Question> question;
 
     public QuestionDaoSimple(@Value("${questions.filename}")String questionResourceFile, ParserCsvDao parser) {
         this.parser = parser;
@@ -17,7 +19,7 @@ public class QuestionDaoSimple implements QuestionDao {
 
 
     @Override
-    public Question getQuestions() {
+    public List<Question> getQuestions() {
         try {
             question = parser.getParseQuestionsFromCsv(getClass().getClassLoader().getResourceAsStream(questionResourceFile));
         } catch (Exception e) {

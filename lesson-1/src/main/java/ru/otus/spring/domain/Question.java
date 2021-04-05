@@ -8,67 +8,47 @@ import java.io.Serializable;
 @RequiredArgsConstructor
 @Getter
 public class Question implements Serializable {
-    private String id;
+    private int id;
     private String text;
-    private String answerA;
-    private String answerB;
-    private String answerC;
-    private String answerD;
+    private String realAnswer;
+    private String[] answers;
 
-    public String getId()
+    public int getId()
     {
         return id;
     }
-    public void setId(String id)
+    public void setId(int id)
     {
         this.id = id;
     }
     public String getText()
-    {
-        return text;
+        {
+            return text;
     }
     public void setText(String text)
     {
         this.text = text;
     }
-    public String getAnswerA()
+    public String getRealAnswer()
     {
-        return answerA;
+        return realAnswer;
     }
-    public void setAnswerA(String answerA)
+    public void setRealAnswer(String realAnswer)
     {
-        this.answerA = answerA;
+        this.realAnswer = realAnswer;
     }
-    public String getAnswerB()
+    public String[] getAnswers()
     {
-        return answerB;
+        return answers;
     }
-    public void setAnswerB(String answerB)
+    public void setAnswers(String[] answers)
     {
-        this.answerB = answerB;
+        this.answers = answers;
     }
-    public String getAnswerC()
-    {
-        return answerC;
-    }
-    public void setAnswerC(String answerC)
-    {
-        this.answerC = answerC;
-    }
-    public String getAnswerD()
-    {
-        return answerD;
-    }
-    public void setAnswerD(String answerD)
-    {
-        this.answerD = answerD;
-    }
-
     @Override
     public String toString()
     {
-        return "Question [id=" + id + ", text=" + text + ", answerA="
-                + answerA + ", answerB=" + answerB + ", answerC=" + answerC
-                + ", answerD=" + answerD + "]";
+        return "Question [id=" + id + ", text=" + text + ", answers="
+                + answers + "]";
     }
 }
