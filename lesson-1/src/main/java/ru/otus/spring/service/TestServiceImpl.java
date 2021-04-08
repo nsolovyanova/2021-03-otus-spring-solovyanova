@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import ru.otus.spring.domain.Question;
 import ru.otus.spring.domain.Student;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,16 +23,13 @@ public class TestServiceImpl implements TestService {
     @Value("${questions.countsuccessfulanswers}")
     private int count;
 
-
+    @Override
     public void startTest() {
         Scanner console = new Scanner(System.in);
 
-        System.out.println(count);
         try {
             Student student = studentService.getStudent();
-            System.out.println(student);
             List <Question> questions = questionService.getQuestions();
-            System.out.println(questions);
             int rightAnswers = 0;
             for (int i = 0; i < questions.size(); i++) {
                 System.out.println("Question № " + questions.get(i).getId());

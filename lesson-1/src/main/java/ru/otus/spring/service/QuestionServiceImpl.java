@@ -18,9 +18,9 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void showAnswers(String [] answers) {
-        for (int i = 0; i < answers.length; i++) {
-            System.out.println(answers[i]);
+    public void showAnswers(List<String> answers) {
+        for (int i = 0; i < answers.size(); i++) {
+            System.out.println(answers.get(i));
         }
 
     }

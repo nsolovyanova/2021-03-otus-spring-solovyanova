@@ -7,5 +7,5 @@ import java.io.InputStream;
 import java.util.List;
 
 public interface ParserCsvDao {
-    public List<Question> getParseQuestionsFromCsv(InputStream input) throws IOException;
+    public List<Question> getParseQuestionsFromCsv(InputStream input) ;
 }
