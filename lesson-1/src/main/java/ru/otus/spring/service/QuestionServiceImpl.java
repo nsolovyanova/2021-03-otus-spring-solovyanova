@@ -13,7 +13,7 @@ public class QuestionServiceImpl implements QuestionService {
     private final QuestionDao dao;
 
     @Override
-    public List<Question> getQuestions() throws Exception {
+    public List<Question> getQuestions(){
         return dao.getQuestions();
     }
 

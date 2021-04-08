@@ -29,7 +29,7 @@ public class TestServiceImpl implements TestService {
 
         try {
             Student student = studentService.getStudent();
-            List <Question> questions = questionService.getQuestions();
+            List<Question> questions = questionService.getQuestions();
             int rightAnswers = 0;
             for (int i = 0; i < questions.size(); i++) {
                 System.out.println("Question № " + questions.get(i).getId());
@@ -44,7 +44,7 @@ public class TestServiceImpl implements TestService {
             System.out.println("Number of correct answers: " + rightAnswers);
 
             student.setAnswer(answers);
-            if (rightAnswers != count){
+            if (rightAnswers != count) {
                 System.out.println("Unfortunately you didn't pass this test.");
                 student.setResultTest(false);
             } else {

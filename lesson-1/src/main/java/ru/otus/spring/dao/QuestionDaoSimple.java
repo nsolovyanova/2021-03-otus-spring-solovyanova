@@ -2,7 +2,6 @@ package ru.otus.spring.dao;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import ru.otus.spring.domain.Question;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class QuestionDaoSimple implements QuestionDao {
     private final ParserCsvDao parser;
     private List<Question> question;
 
-    public QuestionDaoSimple(@Value("${questions.filename}")String questionResourceFile, ParserCsvDao parser) {
+    public QuestionDaoSimple(@Value("${questions.filename}") String questionResourceFile, ParserCsvDao parser) {
         this.parser = parser;
         this.questionResourceFile = questionResourceFile;
     }

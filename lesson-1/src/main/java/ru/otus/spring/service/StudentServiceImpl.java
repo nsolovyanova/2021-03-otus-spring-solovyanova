@@ -8,11 +8,12 @@ import java.util.Scanner;
 
 @Service
 @RequiredArgsConstructor
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudent() {
-        String firstName, lastName;
+        String firstName;
+        String lastName;
         int age;
 
         Scanner console = new Scanner(System.in);

@@ -14,7 +14,7 @@ import ru.otus.spring.service.TestService;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-            AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
         TestService service = context.getBean(TestService.class);
         service.startTest();
     }

@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
-import java.sql.Array;
-import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
