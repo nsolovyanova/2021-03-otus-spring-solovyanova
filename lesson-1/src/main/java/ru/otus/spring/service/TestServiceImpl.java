@@ -22,10 +22,10 @@ public class TestServiceImpl implements TestService {
 
     @Value("${questions.countsuccessfulanswers}")
     private int count;
+    private final ConsoleReader consoleReader;
 
     @Override
     public void startTest() {
-        Scanner console = new Scanner(System.in);
 
         try {
             Student student = studentService.getStudent();
@@ -35,7 +35,7 @@ public class TestServiceImpl implements TestService {
                 System.out.println("Question № " + questions.get(i).getId());
                 System.out.println(questions.get(i).getText());
                 questionService.showAnswers(questions.get(i).getAnswers());
-                String answer = console.nextLine();
+                String answer = consoleReader.getNextLine();
                 answers.add(answer);
                 if (answer.equals(questions.get(i).getRealAnswer())) {
                     rightAnswers++;

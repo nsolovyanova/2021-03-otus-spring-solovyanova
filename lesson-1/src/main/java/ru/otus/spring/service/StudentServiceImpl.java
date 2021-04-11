@@ -4,26 +4,27 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.otus.spring.domain.Student;
 
-import java.util.Scanner;
+import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
+    private final ConsoleReader consoleReader;
 
     @Override
-    public Student getStudent() {
+    public Student getStudent() throws IOException {
         String firstName;
         String lastName;
         int age;
 
-        Scanner console = new Scanner(System.in);
         System.out.println("Testing based on the work of Mumu Turgenev");
         System.out.println("Enter your name:");
-        firstName = console.nextLine();
+
+        firstName = consoleReader.getNextLine();
         System.out.println("Enter your last name:");
-        lastName = console.nextLine();
+        lastName = consoleReader.getNextLine();
         System.out.println("Enter your age:");
-        age = console.nextInt();
+        age = Integer.valueOf(consoleReader.getNextLine());
         return new Student(firstName, lastName, age);
     }
 }
