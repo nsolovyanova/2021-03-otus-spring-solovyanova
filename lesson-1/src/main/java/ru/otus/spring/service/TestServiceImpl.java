@@ -9,7 +9,6 @@ import ru.otus.spring.domain.Student;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @Service
 @RequiredArgsConstructor
@@ -23,6 +22,19 @@ public class TestServiceImpl implements TestService {
     @Value("${questions.countsuccessfulanswers}")
     private int count;
     private final ConsoleReader consoleReader;
+
+    private Boolean getResultTest(int rightAnswers) {
+        Boolean testResult = false;
+        System.out.println("Number of correct answers: " + rightAnswers);
+        if (rightAnswers != count) {
+            System.out.println("Unfortunately you didn't pass this test.");
+            testResult = true;
+
+        } else {
+            System.out.println("Congratulations, you have successfully passed this test!");
+        }
+        return testResult;
+    }
 
     @Override
     public void startTest() {
@@ -41,16 +53,8 @@ public class TestServiceImpl implements TestService {
                     rightAnswers++;
                 }
             }
-            System.out.println("Number of correct answers: " + rightAnswers);
-
             student.setAnswer(answers);
-            if (rightAnswers != count) {
-                System.out.println("Unfortunately you didn't pass this test.");
-                student.setResultTest(false);
-            } else {
-                System.out.println("Congratulations, you have successfully passed this test!");
-                student.setResultTest(true);
-            }
+            student.setResultTest(getResultTest(rightAnswers));
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -14,7 +14,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @DisplayName("Класс студент")
-@ExtendWith(MockitoExtension.class)
 public class StudentServiceImplTest {
 
     @DisplayName("должен возвращать студента")
