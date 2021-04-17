@@ -1,9 +1,7 @@
 package ru.otus.spring.service;
 
-import java.io.IOException;
-
 public interface ConsoleReader {
-    String getNextLine() throws IOException;
+    String getNextLine(String message);
 
-    void close() throws IOException;
+    void close();
 }

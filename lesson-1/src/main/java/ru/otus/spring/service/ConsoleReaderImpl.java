@@ -3,7 +3,6 @@ package ru.otus.spring.service;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 @Service
@@ -16,13 +15,24 @@ public class ConsoleReaderImpl implements ConsoleReader {
     }
 
     @Override
-    public String getNextLine() throws IOException {
-        return reader.readLine();
+    public String getNextLine(String message) {
+        String string = "";
+        System.out.println(message);
+        try {
+            string = reader.readLine();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return string;
     }
 
     @Override
-    public void close() throws IOException {
-        reader.close();
+    public void close() {
+        try {
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

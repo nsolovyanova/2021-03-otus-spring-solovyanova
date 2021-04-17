@@ -12,19 +12,18 @@ public class StudentServiceImpl implements StudentService {
     private final ConsoleReader consoleReader;
 
     @Override
-    public Student getStudent() throws IOException {
-        String firstName;
-        String lastName;
-        int age;
-
-        System.out.println("Testing based on the work of Mumu Turgenev");
-        System.out.println("Enter your name:");
-
-        firstName = consoleReader.getNextLine();
-        System.out.println("Enter your last name:");
-        lastName = consoleReader.getNextLine();
-        System.out.println("Enter your age:");
-        age = Integer.valueOf(consoleReader.getNextLine());
+    public Student getStudent() throws RuntimeException {
+        String firstName = "";
+        String lastName = "";
+        int age = 0;
+        try {
+            System.out.println("Testing based on the work of Mumu Turgenev");
+            firstName = consoleReader.getNextLine("Enter your name:");
+            lastName = consoleReader.getNextLine("Enter your last name:");
+            age = Integer.valueOf(consoleReader.getNextLine("Enter your age:"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return new Student(firstName, lastName, age);
     }
 }

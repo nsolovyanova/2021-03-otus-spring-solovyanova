@@ -5,6 +5,6 @@ import ru.otus.spring.domain.Student;
 import java.io.IOException;
 
 public interface StudentService {
-    public Student getStudent() throws IOException;
+    public Student getStudent();
 
 }

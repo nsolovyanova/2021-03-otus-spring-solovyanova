@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.otus.spring.dao.QuestionDao;
 import ru.otus.spring.domain.Question;
 import ru.otus.spring.domain.Student;
 
@@ -53,8 +52,8 @@ public class TestServiceImplTest {
         List<String> answer = new ArrayList<>();
         when(studentService.getStudent()).thenReturn(student);
         when(questionService.getQuestions()).thenReturn(questionList);
-        when(consoleReader.getNextLine()).thenReturn("1");
-        when(consoleReader.getNextLine()).thenReturn("2");
+        when(consoleReader.getNextLine(questionList.get(1).getText())).thenReturn("1");
+        when(consoleReader.getNextLine(questionList.get(2).getText())).thenReturn("2");
         answer.add("1");
         answer.add("2");
         testService.startTest();

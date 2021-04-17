@@ -29,7 +29,6 @@ public class TestServiceImpl implements TestService {
         if (rightAnswers != count) {
             System.out.println("Unfortunately you didn't pass this test.");
             testResult = true;
-
         } else {
             System.out.println("Congratulations, you have successfully passed this test!");
         }
@@ -47,7 +46,7 @@ public class TestServiceImpl implements TestService {
                 System.out.println("Question № " + questions.get(i).getId());
                 System.out.println(questions.get(i).getText());
                 questionService.showAnswers(questions.get(i).getAnswers());
-                String answer = consoleReader.getNextLine();
+                String answer = consoleReader.getNextLine("");
                 answers.add(answer);
                 if (answer.equals(questions.get(i).getRealAnswer())) {
                     rightAnswers++;

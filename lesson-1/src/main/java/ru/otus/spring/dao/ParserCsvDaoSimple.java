@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import ru.otus.spring.domain.Question;
+import ru.otus.spring.exceptions.ParseQuestionsException;
 
 
 import java.io.*;
@@ -58,9 +59,8 @@ public class ParserCsvDaoSimple implements ParserCsvDao {
                 scanner = new Scanner(line);
                 questionsList.add(getData(scanner));
             }
-        } catch (IOException e) {
-
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new ParseQuestionsException("Error parsing from csv.", e);
         }
 
         return questionsList;
