@@ -3,6 +3,7 @@ package ru.otus.spring.dao;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import ru.otus.spring.domain.Question;
+import ru.otus.spring.exceptions.QuestionsException;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class QuestionDaoSimple implements QuestionDao {
         try {
             question = parser.getParseQuestionsFromCsv(getClass().getClassLoader().getResourceAsStream(questionResourceFile));
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new QuestionsException("Error getting questions.", e);
         }
         return question;
     }
