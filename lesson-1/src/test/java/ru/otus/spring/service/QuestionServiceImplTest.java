@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.otus.spring.dao.QuestionDao;
@@ -20,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Класс Сервис вопросов")
 public class QuestionServiceImplTest {
-    @InjectMocks
+
     private QuestionService questionService;
 
     @Mock
@@ -28,7 +27,6 @@ public class QuestionServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        questionService = new QuestionServiceImpl(dao);
         List<Question> questions = new ArrayList<>();
         questions.add(new Question(1, "2+2", "4", new ArrayList<>()));
         try {
@@ -42,6 +40,7 @@ public class QuestionServiceImplTest {
     @DisplayName("должен получить список вопросов")
     void shouldGetQuestions() {
         try {
+            questionService = new QuestionServiceImpl(dao);
             assertThat(questionService.getQuestions()).isNotNull();
         } catch (Exception e) {
             throw new QuestionsException("Error getting questions.", e);
