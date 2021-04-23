@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Класс Сервис вопросов")
-public class QuestionServiceImplTest {
+class QuestionServiceImplTest {
 
     private QuestionService questionService;
 

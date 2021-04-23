@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import ru.otus.spring.config.ApplicationConfigs;
 import ru.otus.spring.domain.Student;
 
-import java.io.IOException;
-
 @Service
 @RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
@@ -21,7 +19,6 @@ public class StudentServiceImpl implements StudentService {
         String lastName = "";
         int age = 0;
         try {
-            System.out.println(messageSource.getMessage("test.start", null, applicationConfigs.getLocale()));
             firstName = consoleReader.getNextLine(messageSource.getMessage("enter.your.firstname", null, applicationConfigs.getLocale()));
             lastName = consoleReader.getNextLine(messageSource.getMessage("enter.your.lastname", null, applicationConfigs.getLocale()));
             age = Integer.valueOf(consoleReader.getNextLine(messageSource.getMessage("enter.your.age", null, applicationConfigs.getLocale())));

@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Класс студент")
 @ExtendWith(MockitoExtension.class)
-public class StudentServiceImplTest {
+class StudentServiceImplTest {
     public static final String FIRST_TEST_NAME = "Natalya";
     public static final String LAST_TEST_NAME = "Solovyanova";
     public static final int TEST_AGE = 36;
@@ -37,7 +37,6 @@ public class StudentServiceImplTest {
     void setUp() {
         studentService = new StudentServiceImpl(consoleReader, messageSource, applicationConfigs);
         when(applicationConfigs.getLocale()).thenReturn(new Locale("en", "US"));
-        when(messageSource.getMessage(eq("test.start"), any(), any())).thenReturn("Testing based on the work of Mumu Turgenev");
         when(messageSource.getMessage(eq("enter.your.firstname"), any(), any())).thenReturn("Enter your name:");
         when(messageSource.getMessage(eq("enter.your.lastname"), any(), any())).thenReturn("Enter your last name:");
         when(messageSource.getMessage(eq("enter.your.age"), any(), any())).thenReturn("Enter your age:");
