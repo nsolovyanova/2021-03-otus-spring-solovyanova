@@ -1,0 +1,8 @@
+spring:
+  messages:
+    basename: i18n.messages
+    fallback-to-system-locale: false
+application:
+  countSuccessfulAnswers: 5
+  locale: ru_RU
+  csv-file-name: QuestionForTest.csv

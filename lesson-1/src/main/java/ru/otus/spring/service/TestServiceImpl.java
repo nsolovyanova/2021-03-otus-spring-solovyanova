@@ -2,8 +2,10 @@ package ru.otus.spring.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
+import ru.otus.spring.config.ApplicationConfigs;
 import ru.otus.spring.domain.Question;
 import ru.otus.spring.domain.Student;
 
@@ -12,25 +14,24 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@PropertySource("classpath:application.property")
 public class TestServiceImpl implements TestService {
+    private final MessageSource messageSource;
+    private final ApplicationConfigs applicationConfigs;
 
     private final StudentService studentService;
     private final QuestionService questionService;
     private List<String> answers = new ArrayList<>();
 
-    @Value("${questions.countsuccessfulanswers}")
-    private int count;
     private final ConsoleReader consoleReader;
 
     private Boolean getResultTest(int rightAnswers) {
         Boolean testResult = false;
-        System.out.println("Number of correct answers: " + rightAnswers);
-        if (rightAnswers != count) {
-            System.out.println("Unfortunately you didn't pass this test.");
-            testResult = true;
+        System.out.println(messageSource.getMessage("number.correct.answer", new String[]{Integer.toString(rightAnswers)}, applicationConfigs.getLocale()));
+        if (rightAnswers != applicationConfigs.getCountSuccessfulAnswers()) {
+            System.out.println(messageSource.getMessage("result.unsuccess", null, applicationConfigs.getLocale()));
         } else {
-            System.out.println("Congratulations, you have successfully passed this test!");
+            System.out.println(messageSource.getMessage("result.success", null, applicationConfigs.getLocale()));
+            testResult = true;
         }
         return testResult;
     }
