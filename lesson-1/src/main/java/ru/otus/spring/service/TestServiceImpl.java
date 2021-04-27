@@ -1,9 +1,7 @@
 package ru.otus.spring.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import ru.otus.spring.config.ApplicationConfigs;
 import ru.otus.spring.domain.Question;
@@ -40,6 +38,7 @@ public class TestServiceImpl implements TestService {
     public void startTest() {
 
         try {
+            System.out.println(messageSource.getMessage("test.start", null, applicationConfigs.getLocale()));
             Student student = studentService.getStudent();
             List<Question> questions = questionService.getQuestions();
             int rightAnswers = 0;

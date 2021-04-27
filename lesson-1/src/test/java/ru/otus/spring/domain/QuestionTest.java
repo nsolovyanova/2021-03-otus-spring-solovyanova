@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("класс Question")
-public class QuestionTest {
+class QuestionTest {
     @DisplayName("должен корректно создавать новый экземпляр класса Question")
     @Test
     void shouldCorrectConstructorQuestion() {

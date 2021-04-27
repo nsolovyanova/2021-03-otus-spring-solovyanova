@@ -1,15 +1,12 @@
 package ru.otus.spring.dao;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import ru.otus.spring.config.ApplicationConfigs;
 import ru.otus.spring.domain.Question;
 import ru.otus.spring.exceptions.QuestionsException;
 
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 @Component
 @RequiredArgsConstructor

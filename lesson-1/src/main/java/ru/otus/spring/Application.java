@@ -12,9 +12,7 @@ import ru.otus.spring.service.TestService;
 public class Application {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(Application.class, args);
-		TestService service = ctx.getBean(TestService.class);
-		service.startTest();
+		SpringApplication.run(Application.class, args);
 	}
 
 }

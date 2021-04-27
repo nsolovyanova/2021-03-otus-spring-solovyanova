@@ -8,21 +8,16 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.otus.spring.config.ApplicationConfigs;
 import ru.otus.spring.domain.Question;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
 
 @DisplayName("Вопросы для теста")
 @ExtendWith(MockitoExtension.class)
-public class QuestionDaoSimpleTest {
+class QuestionDaoSimpleTest {
     private QuestionDao dao;
 
     @Mock

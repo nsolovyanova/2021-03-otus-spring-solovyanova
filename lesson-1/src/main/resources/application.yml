@@ -2,6 +2,9 @@ spring:
   messages:
     basename: i18n.messages
     fallback-to-system-locale: false
+  shell:
+    interactive:
+      enabled: true
 application:
   countSuccessfulAnswers: 5
   locale: ru_RU
