@@ -68,15 +68,5 @@ public class AuthorDaoJdbc implements AuthorDao {
     public List<Author> getListByBookId(long bookId) {
         return jdbc.query("select id, name from authors where book_id = :book_Id", Map.of("book_Id", bookId), new AuthorMapper());
     }
-//
-//    @Override
-//    public List<Author> getListByGenreId(long genreId) {
-//        return null;
-//    }
-//
-//    @Override
-//    public List<Author> getListByBookIdAndGenreId(long bookId, long genreId) {
-//        return null;
-//    }
 
 }

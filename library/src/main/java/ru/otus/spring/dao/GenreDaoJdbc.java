@@ -65,10 +65,6 @@ public class GenreDaoJdbc implements GenreDao {
     public List<Genre> getAll() {
         return jdbc.query("select id, name from genres", new GenreDaoJdbc.GenreMapper());
     }
-
-//    @Override
-//    public List<Genre> getListByGenreId(long GenreId) {
-//        return null;
-//    }
+    
 
 }

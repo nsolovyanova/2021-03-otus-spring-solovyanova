@@ -7,7 +7,6 @@ import ru.otus.spring.domain.Book;
 import ru.otus.spring.dto.BookDto;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,7 +21,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookDto> getListBook() {
-        List<Book> books = dao.getAll();
         return dao.getAll().stream().map(BookDto::new).collect(Collectors.toList());
     }
 

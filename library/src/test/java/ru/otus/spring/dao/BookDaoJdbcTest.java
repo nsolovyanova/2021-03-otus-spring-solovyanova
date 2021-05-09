@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("Класс BookDaoJdbc должен")
 @JdbcTest
 @Import(BookDaoJdbc.class)
-public class BookDaoJdbcTest {
+class BookDaoJdbcTest {
     public static final long INSERTED_BOOK_ID = 2L;
     public static final String INSERTED_BOOK_NAME = "Мальчик со шпагой";
     public static final long DEFAULT_BOOK_ID = 1L;

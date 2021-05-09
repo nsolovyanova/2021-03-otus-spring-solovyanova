@@ -76,10 +76,4 @@ class GenreDaoJdbcTest {
         assertThat(genreActual.get()).isEqualTo(genreExpected);
     }
 
-//    @Test
-//    @DisplayName("должен изменять жанр")
-//    void shouldUpdateGenre() {
-//
-//    }
-//
 }
