@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookRepository {
-    Optional<Book> getById(Long id);
+    Optional<Book> getById(long id);
 
     Optional<Book> getByName(String name);
 

@@ -28,7 +28,7 @@ public class GenreServiceImpl implements GenreService {
 
     @Transactional(readOnly = true)
     @Override
-    public Optional<Genre> getById(Long id) {
+    public Optional<Genre> getById(long id) {
         return genreRepository.getById(id);
     }
 

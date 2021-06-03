@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookService {
-    Optional<Book> getById(Long id);
+    Optional<Book> getById(long id);
 
     Optional<Book> getByName(String name);
 
@@ -18,7 +18,7 @@ public interface BookService {
 
     List<Book> getAll();
 
-    Book insert (Book book);
+    Book insert(Book book);
 
     Book save(Book book);
 

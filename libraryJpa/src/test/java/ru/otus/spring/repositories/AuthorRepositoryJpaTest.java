@@ -41,7 +41,7 @@ public class AuthorRepositoryJpaTest {
     @DisplayName("Сохранять автора")
     @Test
     void shouldSaveAuthor() {
-        val newAuthor = new Author(0L,TEST_AUTHOR_NAME);
+        val newAuthor = new Author(0L, TEST_AUTHOR_NAME);
         authorRepositoryJpa.save(newAuthor);
         assertThat(newAuthor.getId()).isGreaterThan(0);
 
@@ -68,6 +68,12 @@ public class AuthorRepositoryJpaTest {
     @DisplayName("Удалять переданного автора")
     @Test
     void shouldDeleteAuthor() {
+        val actualAuthor = em.find(Author.class, FIRST_AUTHOR_ID);
+        assertThat(actualAuthor).isNotNull();
 
+        authorRepositoryJpa.delete(actualAuthor);
+        val deletedAuthor = em.find(Author.class, FIRST_AUTHOR_ID);
+
+        assertThat(deletedAuthor).isNull();
     }
 }

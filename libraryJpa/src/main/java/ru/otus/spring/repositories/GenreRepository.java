@@ -10,7 +10,7 @@ public interface GenreRepository {
 
     Genre save(Genre genre);
 
-    Optional<Genre> getById(Long id);
+    Optional<Genre> getById(long id);
 
     Optional<Genre> getByName(String name);
 

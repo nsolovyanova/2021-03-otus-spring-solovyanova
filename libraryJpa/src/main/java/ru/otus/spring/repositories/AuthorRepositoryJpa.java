@@ -17,8 +17,7 @@ public class AuthorRepositoryJpa implements AuthorRepository {
     @Override
     public List<Author> getAll() {
         TypedQuery<Author> query = entityManager.createQuery("select a from Author a", Author.class);
-        List<Author> authors = query.getResultList();
-        return authors;
+        return query.getResultList();
     }
 
     @Override
@@ -31,7 +30,7 @@ public class AuthorRepositoryJpa implements AuthorRepository {
     }
 
     @Override
-    public Optional<Author> getById(Long id) {
+    public Optional<Author> getById(long id) {
         return Optional.ofNullable(entityManager.find(Author.class, id));
     }
 

@@ -11,7 +11,7 @@ public interface CommentRepository {
 
     List<Comment> getAllCommentsByBook(Book book);
 
-    Comment save (Comment comment);
+    Comment save(Comment comment);
 
-    void delete (Comment comment);
+    void delete(Comment comment);
 }

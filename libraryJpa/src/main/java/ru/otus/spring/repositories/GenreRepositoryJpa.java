@@ -30,7 +30,7 @@ public class GenreRepositoryJpa implements GenreRepository {
     }
 
     @Override
-    public Optional<Genre> getById(Long id) {
+    public Optional<Genre> getById(long id) {
         return Optional.ofNullable(entityManager.find(Genre.class, id));
     }
 

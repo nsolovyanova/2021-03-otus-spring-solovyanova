@@ -9,7 +9,10 @@ insert into books (name, author_id, genre_id) values ('Отцы и дети', 3,
 insert into comments (book_id, text_comment) values (1, 'Трудная книга');
 insert into comments (book_id, text_comment) values (1, 'Жизненная книга');
 insert into comments (book_id, text_comment) values (2, 'Замечательная книга, обожаю Эллочку');
+insert into comments (book_id, text_comment) values (2, 'Классика на все времена');
 insert into comments (book_id, text_comment) values (3, 'Ниосилил');
+insert into comments (book_id, text_comment) values (3, 'В школе читал');
+insert into comments (book_id, text_comment) values (3, 'Проблема актуальна');
 
 
 

@@ -8,6 +8,7 @@ import ru.otus.spring.domain.Book;
 import ru.otus.spring.domain.Genre;
 import ru.otus.spring.repositories.BookRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,7 @@ public class BookServiceImpl implements BookService {
 
     @Transactional(readOnly = true)
     @Override
-    public Optional<Book> getById(Long id) {
+    public Optional<Book> getById(long id) {
         return bookRepository.getById(id);
     }
 
@@ -29,13 +30,21 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Book> getAllBookByAuthor(Author author) {
-        return null;
+        if (author != null) {
+            return bookRepository.getAllBookByAuthor(author);
+        }
+        return new ArrayList<>();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Book> getAllBookByGenre(Genre genre) {
-        return null;
+        if (genre != null) {
+            return bookRepository.getAllBookByGenre(genre);
+        }
+        return new ArrayList<>();
     }
 
     @Transactional(readOnly = true)

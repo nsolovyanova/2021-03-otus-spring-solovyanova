@@ -8,14 +8,15 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "authors")
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
-    private Long id;
+    private long id;
 
-    @Column(name = "name", nullable = true, unique = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
 }

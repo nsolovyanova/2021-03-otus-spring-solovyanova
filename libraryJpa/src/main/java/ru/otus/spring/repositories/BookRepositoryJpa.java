@@ -32,7 +32,7 @@ public class BookRepositoryJpa implements BookRepository {
     }
 
     @Override
-    public Optional<Book> getById(Long id) {
+    public Optional<Book> getById(long id) {
         return Optional.ofNullable(entityManager.find(Book.class, id));
     }
 
@@ -46,8 +46,8 @@ public class BookRepositoryJpa implements BookRepository {
     @Override
     public List<Book> getAllBookByAuthor(Author author) {
         TypedQuery<Book> query = entityManager.createQuery("select b from Book b " +
-                                                               "join fetch Author a " +
-                                                               "where a.id = :id", Book.class);
+                "join fetch b.author a " +
+                "where a.id = :id", Book.class);
         query.setParameter("id", author.getId());
         return query.getResultList();
     }
@@ -55,8 +55,8 @@ public class BookRepositoryJpa implements BookRepository {
     @Override
     public List<Book> getAllBookByGenre(Genre genre) {
         TypedQuery<Book> query = entityManager.createQuery("select b from Book b " +
-                "join fetch Genre a " +
-                "where a.id = :id", Book.class);
+                "join fetch b.genre g " +
+                "where g.id = :id", Book.class);
         query.setParameter("id", genre.getId());
         return query.getResultList();
     }
