@@ -11,10 +11,7 @@ import ru.otus.spring.domain.Comment;
 import ru.otus.spring.domain.Genre;
 import ru.otus.spring.repositories.BookRepository;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -57,8 +54,8 @@ class BookServiceImplTest {
 
     @BeforeAll
     public void setUp() {
-        author1 = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME);
-        author2 = new Author(SECOND_AUTHOR_ID, SECOND_AUTHOR_NAME);
+        author1 = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME, new ArrayList<>());
+        author2 = new Author(SECOND_AUTHOR_ID, SECOND_AUTHOR_NAME, new ArrayList<>());
         genre1 = new Genre(FIRST_GENRE_ID, FIRST_GENRE_NAME);
         genre2 = new Genre(SECOND_GENRE_ID, SECOND_GENRE_NAME);
 

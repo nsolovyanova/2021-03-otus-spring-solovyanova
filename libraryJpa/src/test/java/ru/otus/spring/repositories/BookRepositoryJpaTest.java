@@ -12,6 +12,7 @@ import ru.otus.spring.domain.Book;
 import ru.otus.spring.domain.Comment;
 import ru.otus.spring.domain.Genre;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,7 +64,7 @@ public class BookRepositoryJpaTest {
     @DisplayName("Возвращать книги по автору")
     @Test
     void shouldReturnAllBooksByAuthor() {
-        val author = new Author(BOOK_BY_AUTHOR_ID, BOOK_BY_AUTHOR_NAME);
+        val author = new Author(BOOK_BY_AUTHOR_ID, BOOK_BY_AUTHOR_NAME, new ArrayList<>());
 
         val books = repositoryJpa.getAllBookByAuthor(author);
         assertThat(books).isNotNull().hasSize(EXPECTED_NUMBER_OF_BOOKS_BY_AUTHOR)
@@ -92,7 +93,7 @@ public class BookRepositoryJpaTest {
     @DisplayName("Сохранять всю информацию о книге")
     @Test
     void shouldSaveBook() {
-        val author = new Author(0L, TEST_AUTHER_NAME);
+        val author = new Author(0L, TEST_AUTHER_NAME, new ArrayList<>());
         val genre = new Genre(0L, TEST_GENRE_NAME);
         val book = Book.builder().id(0).name(TEST_BOOK_NAME).author(author).genre(genre).build();
 

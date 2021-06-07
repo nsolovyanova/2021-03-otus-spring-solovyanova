@@ -12,6 +12,7 @@ import ru.otus.spring.domain.Book;
 import ru.otus.spring.domain.Comment;
 import ru.otus.spring.domain.Genre;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -46,7 +47,7 @@ public class CommentRepositoryJpaTest {
     @DisplayName("Сохранять комментарий")
     @Test
     void shouldSaveComment() {
-        val author = new Author(0L, TEST_AUTHER_NAME);
+        val author = new Author(0L, TEST_AUTHER_NAME, new ArrayList<>());
         val genre = new Genre(0L, TEST_GENRE_NAME);
         val book = Book.builder().id(0).name(TEST_BOOK_NAME).author(author).genre(genre).build();
         val comment = new Comment(1L, book, TEST_COMMENT_NAME);

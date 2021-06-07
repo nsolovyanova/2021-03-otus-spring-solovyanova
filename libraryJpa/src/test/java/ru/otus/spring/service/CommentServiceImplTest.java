@@ -10,6 +10,7 @@ import ru.otus.spring.domain.Comment;
 import ru.otus.spring.domain.Genre;
 import ru.otus.spring.repositories.CommentRepository;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,7 +44,7 @@ public class CommentServiceImplTest {
 
     @BeforeAll
     public void setUp() {
-        author = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME);
+        author = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME, new ArrayList<>());
         genre = new Genre(FIRST_GENRE_ID, FIRST_GENRE_NAME);
         book = Book.builder().id(FIRST_BOOK_ID).name(FIRST_BOOK_NAME).genre(genre).author(author).build();
         comment = new Comment(FIRST_COMMENT_ID, book, FIRST_COMMENT_NAME);

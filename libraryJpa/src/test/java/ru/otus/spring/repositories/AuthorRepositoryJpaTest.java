@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.transaction.annotation.Transactional;
 import ru.otus.spring.domain.Author;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,7 +42,7 @@ public class AuthorRepositoryJpaTest {
     @DisplayName("Сохранять автора")
     @Test
     void shouldSaveAuthor() {
-        val newAuthor = new Author(0L, TEST_AUTHOR_NAME);
+        val newAuthor = new Author(0L, TEST_AUTHOR_NAME, new ArrayList<>());
         authorRepositoryJpa.save(newAuthor);
         assertThat(newAuthor.getId()).isGreaterThan(0);
 

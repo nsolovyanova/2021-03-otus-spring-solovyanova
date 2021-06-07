@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.otus.spring.domain.Author;
 import ru.otus.spring.repositories.AuthorRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -39,17 +40,17 @@ class AuthorServiceImplTest {
     @Test
     @DisplayName("создавать нового автора")
     void shouldSaveAuthor() {
-        Author expectedAuthor = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME);
+        Author expectedAuthor = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME,new ArrayList<>());
         given(authorRepository.save(any(Author.class))).willReturn(expectedAuthor);
-        Author actualAuthor = authorService.save(new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME));
+        Author actualAuthor = authorService.save(new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME, new ArrayList<>()));
         verify(authorRepository, times(1)).save(any(Author.class));
     }
 
     @Test
     @DisplayName("возвращать всех авторов")
     void shouldGetListAuthor() {
-        List<Author> authors = List.of(new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME),
-                new Author(SECOND_AUTHOR_ID, SECOND_AUTHOR_NAME));
+        List<Author> authors = List.of(new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME, new ArrayList<>()),
+                new Author(SECOND_AUTHOR_ID, SECOND_AUTHOR_NAME, new ArrayList<>()));
         List<String> expectedAuthors = authors.stream().map(Author::toString).collect(Collectors.toList());
         given(authorRepository.getAll()).willReturn(authors);
         List<String> actualAuthors = authorService.getAll().stream().map(Author::toString).collect(Collectors.toList());
@@ -61,7 +62,7 @@ class AuthorServiceImplTest {
     @DisplayName("возвращать автора по id")
     @Test
     void shouldGetById() {
-        Author expectedAuthor = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME);
+        Author expectedAuthor = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME, new ArrayList<>());
         given(authorRepository.getById(FIRST_AUTHOR_ID)).willReturn(Optional.of(expectedAuthor));
         Author author = authorService.getById(FIRST_AUTHOR_ID).get();
 
@@ -71,7 +72,7 @@ class AuthorServiceImplTest {
     @DisplayName("возвращать автора по name")
     @Test
     void shouldGetByName() {
-        Author expectedAuthor = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME);
+        Author expectedAuthor = new Author(FIRST_AUTHOR_ID, FIRST_AUTHOR_NAME, new ArrayList<>());
         given(authorRepository.getByName(FIRST_AUTHOR_NAME)).willReturn(Optional.of(expectedAuthor));
         Author author = authorService.getByName(FIRST_AUTHOR_NAME).get();
 

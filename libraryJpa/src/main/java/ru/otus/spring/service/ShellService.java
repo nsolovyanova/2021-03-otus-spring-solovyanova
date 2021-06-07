@@ -12,6 +12,8 @@ import ru.otus.spring.domain.Book;
 import ru.otus.spring.domain.Comment;
 import ru.otus.spring.domain.Genre;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,12 +47,13 @@ public class ShellService {
     @ShellMethod(value = "Add new author: aa <Author>", key = {"add-author", "aa"})
     public String addAuthor(@ShellOption String authorName) {
         try {
-            Author author = authorService.save(new Author(0L, authorName));
+            Author author = authorService.save(new Author(0L, authorName, new ArrayList<>()));
             return ms.getMessage("author.added.successfully" + author.getName(), null, applicationConfigs.getLocale());
         } catch (Exception e) {
             return ms.getMessage("author.adding.error", null, applicationConfigs.getLocale());
         }
     }
+
 
     @Transactional
     @ShellMethod(value = "Add new genre: ag <Genre>", key = {"add-genre", "ag"})
@@ -149,6 +152,24 @@ public class ShellService {
         }
         else
             System.out.println("The book hasn't find by this id = " + bookId);
+    }
+
+    @Transactional(readOnly = true)
+    @ShellMethod(value = "Show all books by author: sb  <authorName>", key = {"sb"})
+    public void showAllBooksByAuthor(@ShellOption(help = "authorName") String authorName) {
+        Optional<Author> author = authorService.getByName(authorName);
+
+        if (author.isPresent())  {
+            if (author.get().getBook() != null && author.get().getBook().size() > 0) {
+                System.out.println("Books by author \"" + author.get().getName() + "\":");
+                author.get().getBook().forEach(System.out::println);
+            }
+            else {
+                System.out.println("Author \"" + author.get().getName() + "\" doesn't have any books");
+            }
+        }
+        else
+            System.out.println("The author hasn't find by this name = " + authorName);
     }
 
     @Transactional
