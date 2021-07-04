@@ -1,0 +1,41 @@
+GET http://localhost:8080/spring/books
+
+###
+GET http://localhost:8080/spring/books/2
+
+###
+GET http://localhost:8080/spring/authors/
+
+###
+GET http://localhost:8080/spring/genres/
+
+###
+GET http://localhost:8080/spring/books/book/2/comments
+
+###
+POST http://localhost:8080/spring/books
+Content-Type: application/json
+
+{
+  "id":"0",
+  "name": "Тест",
+  "authors": [],
+  "genres": []
+}
+
+###
+PUT http://localhost:8080/spring/books
+Content-Type: application/json
+
+{
+  "id":"6",
+  "name": "Руслан и Людмила",
+  "authors": ["Пушкин"],
+  "genres": ["Поэма"]
+}
+
+###
+DELETE http://localhost:8080/spring/books/2
+
+###
+
