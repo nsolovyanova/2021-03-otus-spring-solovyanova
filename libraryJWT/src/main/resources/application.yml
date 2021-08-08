@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+  messages:
+    basename: i18n.messages
+    fallback-to-system-locale: false
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+    endpoint:
+      health:
+        show-details: always
+    health:
+      defaults:
+        enabled: true
+jwt:
+  private.key: classpath:JWTKey.key
+  public.key: classpath:JWTKey.pub
+logging:
+  level:
+    root: info
+  file:
+    name: "log/logfile.log"
+application:
+  default-locale-tag: ru-RU
